@@ -1,3 +1,4 @@
+import KBControlsFX.ControlAction;
 import KBControlsFX.Controls;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -20,11 +21,12 @@ public class Main extends Application {
 		l.setFont(new Font(35));
 		root.getChildren().add(l);
 
-		Controls c = new Controls(root);
-		c.setAction(KeyCode.A, "A", () -> l.setText("A"));
-		c.setAction(KeyCode.W, "W", () -> l.setText("W"));
-		c.setAction(KeyCode.S, "S", () -> l.setText("S"));
-		c.setAction(KeyCode.D, "D", () -> l.setText("D"));
+		Controls.init(root);
+		Controls.addActionAndBind(KeyCode.A, "A", () -> l.setText("A"));
+		Controls.addActionAndBind(KeyCode.W, "W", () -> l.setText("W"));
+		Controls.addActionAndBind(KeyCode.S, "S", () -> l.setText("S"));
+		Controls.addActionAndBind(KeyCode.D, "D", () -> l.setText("D"));
+
 
 		stage.setScene(new Scene(root));
 		stage.show();
